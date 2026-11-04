@@ -19,14 +19,13 @@ function arborescence($cheminDossier) {
 
             $html .= '<li class="dossier">';
             $html .= '<details>';
-            $html .= '<summary><strong>[Dossier]</strong> ' . htmlspecialchars($element) . '</summary>';
-
+            $html .= '<summary><strong>[Dossier]</strong> ' . htmlspecialchars($element) . '  ' . '<a href="delete.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">delete</a></summary>';
             $html .= arborescence($cheminComplet);
             $html .= '</details>';
             $html .= '</li>';
         } else {
 
-            $html .= '<li class="fichier">[Fichier] ' . htmlspecialchars($element) . '</li>';
+            $html .= '<li class="fichier">[Fichier] ' . htmlspecialchars($element) . '  ' . '<a href="delete.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">delete</a></li>';
         }
     }
     $html .= '</ul>';
