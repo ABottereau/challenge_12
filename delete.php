@@ -1,6 +1,6 @@
 <?php
 
-function viderDossier($dossier) {
+function viderDossier(string $dossier) {
     if (!is_dir($dossier)) {
         @unlink($dossier);
         return;
