@@ -1,8 +1,7 @@
 <?php 
 include('inc/head.php');
 
-$nomDossierRacine = 'files'; 
-$cheminRacine = __DIR__ . '/' . $nomDossierRacine;
+include('config/constantes.php');
 
 function arborescence($cheminDossier) {
     if (!is_dir($cheminDossier)) return '';
@@ -39,10 +38,10 @@ function arborescence($cheminDossier) {
     return $html;
 }
 
-if (is_dir($cheminRacine)) {
-    echo arborescence($cheminRacine);
+if (is_dir(CHEMINRACINE)) {
+    echo arborescence(CHEMINRACINE);
 } else {
-    echo '<p style="color:red;">Erreur : Le dossier "' . htmlspecialchars($nomDossierRacine) . '" est introuvable.</p>';
+    echo '<p style="color:red;">Erreur : Le dossier "' . htmlspecialchars(CHEMINRACINE) . '" est introuvable.</p>';
 }
 
 include('inc/foot.php'); 
