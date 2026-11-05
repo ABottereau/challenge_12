@@ -25,7 +25,14 @@ function arborescence($cheminDossier) {
             $html .= '</li>';
         } else {
 
-            $html .= '<li class="fichier">[Fichier] ' . htmlspecialchars($element) . '  ' . '<a href="edit.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">edit</a>' . '  ' . '<a href="delete.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">delete</a></li>';
+            $allowedExtensions = ['txt', 'html'];
+            $html .= '<li class="fichier">[Fichier] ' . htmlspecialchars($element);
+            if (in_array(pathinfo($element, PATHINFO_EXTENSION), $allowedExtensions)) {
+
+                $html .= '  ' . '<a href="edit.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">edit</a>';
+            }
+
+            $html .= '  ' . '<a href="delete.php?q=' . $cheminDossier . '/' . htmlspecialchars($element) . '">delete</a></li>';
         }
     }
     $html .= '</ul>';
